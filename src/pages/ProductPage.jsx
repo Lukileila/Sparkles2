@@ -8,14 +8,17 @@ import CardSection from '../components/CardSection';
 export default function ProductPage () {
     return (
 <>
+<div className='top-50'>
 <Breadcrumbs/>
+</div>
 
-<div className="bg-gray-100 h-screen flex flex-col items-center justify-center" style={{height:'70vh'}}>
+
+<div className="bg-gray-100 h-screen flex flex-col items-center justify-center" style={{height:'90vh'}}>
 <Steps />
-<div> <div className="bg-white p-10 rounded-lg shadow-lg flex flex-col md:flex-row mt-5" style={{minWidth:'80vw'}}>
+<div> <div className="bg-white p-10 rounded-lg shadow-lg flex flex-col md:flex-row" style={{maxWidth:'80vw'}}>
         <div className="md:w-1/2 md:pr-8">
           <img
-            src="product-image.jpg" 
+            src="https://wallpapers.com/images/hd/comic-book-background-a09lfl6egxpsqgwc.jpg" 
             alt="Product"
             className="w-full h-auto rounded-md"
           />

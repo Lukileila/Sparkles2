@@ -1,8 +1,6 @@
-import HeroImage from '../assets/images/heroimage.jpeg';
-
 export default function HeroBanner(){    
     return (
-        <div className="hero min-h-screen" style={{backgroundImage: 'url(https://wallpapers.com/images/hd/comic-book-background-a09lfl6egxpsqgwc.jpg)'}}>
+        <div className="hero min-h-screen" style={{backgroundImage: 'url(https://wallpapercave.com/wp/wp1829343.jpg)'}}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">

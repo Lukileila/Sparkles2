@@ -1,12 +1,11 @@
 import {Link} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
-import logo from '../assets/images/sparkleslogo.png'
 
 
 export default function Navbar(){  
   
     return (
-        <div className="fixed z-50 navbar bg-base-100">
+        <div className="top-0 z-50 navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +31,7 @@ export default function Navbar(){
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-xl" style={{width:'120px'}}><img src={logo} alt="" /></a>
+          <a className="normal-case text-xl" style={{width:'120px'}}><img src='' alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
