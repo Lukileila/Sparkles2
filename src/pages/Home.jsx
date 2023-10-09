@@ -1,9 +1,14 @@
+import HeroBanner from '../components/HeroBanner';
+import Search from '../components/Search';
+import CardSection from '../components/CardSection';
+
+
 export default function Home(){    
     return (
     <>
-    <div>
-    <p>something home</p>
-    </div>
+    <HeroBanner/>
+    <Search/>
+    <CardSection/>
     </>
     )
 }
