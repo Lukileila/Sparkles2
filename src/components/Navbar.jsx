@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 
@@ -36,7 +36,12 @@ export default function Navbar(){
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             
-            <li><a><Link to="/">Home</Link></a>  </li>
+            <li><a><NavLink 
+             className={(({ isActive }) => (isActive ? "active" : ""))}   style={({ isActive}) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",  };
+                }}
+            to="/">Home</NavLink></a>  </li>
             <li><a> <Link to="/entry">About</Link></a></li>
             <li tabIndex={0}>
               <details>
