@@ -6,7 +6,7 @@ import logo from '../assets/images/sparkleslogo.png'
 export default function Navbar(){  
   
     return (
-        <div className="navbar bg-base-100">
+        <div className="fixed z-50 navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,7 +51,7 @@ export default function Navbar(){
             <li><a>Contact</a></li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-4">
         <ThemeSwitcher/>
           <a className="btn btn-primary"><Link to="/login">Login</Link></a>
           <a className="btn btn-primary"> <Link to="/signup">Sign Up</Link></a>

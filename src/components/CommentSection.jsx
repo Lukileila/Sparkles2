@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Review from '../components/Review'
 
 export default function CommentSection () {
 
@@ -20,7 +21,9 @@ export default function CommentSection () {
     
       return (
         <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Comments</h2>
+      <h2 className="text-2xl font-semibold mb-4">Customer Reviews</h2>
+      <p className='flex items-center mb-4'><Review />: 41 Reviews</p>
+      
       <div className="mb-4">
         <input
           type="text"
@@ -33,12 +36,16 @@ export default function CommentSection () {
           onClick={handleCommentSubmit}
           className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
         >
-          Add Comment
+          Add a Review
         </button>
       </div>
       <div>
         {comments.map((comment, index) => (
           <div key={index} className="bg-white p-4 mb-4 rounded shadow">
+            {comment.review}
+            {comment.author}
+            {comment.createdAt}
+            {comment.title}
             {comment}
           </div>
         ))}

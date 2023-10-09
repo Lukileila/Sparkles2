@@ -1,8 +1,9 @@
 import Breadcrumbs from '../components/Breadcrumbs';
 import Steps from '../components/Steps';
-import Rating from '../components/Rating';
+import Review from '../components/Review';
 import CommentSection from '../components/CommentSection';
 import Share from '../components/Share';
+import CardSection from '../components/CardSection';
 
 export default function ProductPage () {
     return (
@@ -30,9 +31,8 @@ export default function ProductPage () {
           </div>
           <div className="flex flex-col items-start justify-between ">
           <span className="text-gray-700 flex items-center mt-1">
-                Rating:<Rating/></span>
-            <span className="text-gray-700 mt-1">Comments: 50+</span>
-            <span className="text-gray-700 mt-1">Category: Electronics</span>
+                <Review/>: 41 reviews</span>
+            <span className="text-gray-700 mt-1">Category: Marvel</span>
            
             
           </div>
@@ -43,6 +43,8 @@ export default function ProductPage () {
     </div>
     <Share />
     <CommentSection/>
+    <h2 className="text-2xl font-semibold mb-4 ml-4">You might also like...</h2>
+    <CardSection/>
 </>
 
     )
