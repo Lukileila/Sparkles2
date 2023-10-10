@@ -4,13 +4,13 @@ import Review from '../components/Review';
 import CommentSection from '../components/CommentSection';
 import Share from '../components/Share';
 import CardSection from '../components/CardSection';
-import Navbar from '../components/Navbar';
+import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
 
 export default function ProductPage () {
     return (
 <>
-<Navbar/>
+<NavbarLoggedIn/>
 <div className='top-50'>
 <Breadcrumbs/>
 </div>
