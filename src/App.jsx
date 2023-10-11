@@ -21,7 +21,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path='singleproduct/:id' element={<ProductPage/>} />
           <Route path="*" element={<Error />} />
-          </Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   )

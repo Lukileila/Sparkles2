@@ -1,28 +1,50 @@
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Breadcrumbs from '../components/Breadcrumbs';
+/*import { useState, useEffect } from 'react';*/
+/*import { useParams } from 'react-router-dom';*/
+/* import Breadcrumbs from '../components/Breadcrumbs';
 import Steps from '../components/Steps';
 import Review from '../components/Review';
 import CommentSection from '../components/CommentSection';
 import Share from '../components/Share';
-import CardSection from '../components/CardSection';
+import CardSection from '../components/CardSection'; */
 import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
-import { getEntries } from '../contentful';
+/* import {  getEntries,  getEntry } from '../contentful'; */
+import contentful from  '../contentful';
 import Spinner from '../components/Spinner';
 import Tag from '../components/Tag';
 
 export default function ProductPage() {
-  const { id } = useParams();
-  const [singleEntry, setSingleEntry] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
+
+  const client = contentful.createClient({
+    space: "lerti9id4rxk",
+    accessToken: "wxR7_bR8_nE62t7-zKSB9fTUNEKFfQmGiiiWNZXJJco"
+  })
+
+
+  const getEntry = async() => {
+    try {
+    const entry = await client.getEntry('1645XVOgL8cGdByh6e17Qh')
+     console.log(entry)
+    return entry;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+
+  /*const { id } = useParams();
+  const [singleEntry, setSingleEntry] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);*/
+  
+/* 
   useEffect(() => {
     if (id) {
       getEntries(id)
         .then((entryData) => {
-          console.log(entryData);
           setSingleEntry(entryData);
+          console.log('entry data function',entryData);
+          console.log('singleEntry State',singleEntry);
           setIsLoading(false);
         })
         .catch((error) => {
@@ -30,15 +52,34 @@ export default function ProductPage() {
           setIsLoading(false);
         });
     }
-  }, [id]);
+  }, [id]); */
 
+/*   useEffect(() => {
+    getEntry(id)
+      .then((entryData) => {
+        console.log(entryData);
+        setSingleEntry(entryData);
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.error(error);
+         setIsLoading(false);
+      });
+  }, [id]); */
+  
+/* console.log('getEntry',getEntry); */
+
+
+/*
 console.log("ProductPage rendered with id:", id);
-console.log("Single Entry:", singleEntry);
+console.log("Single Entry:", singleEntry);*/
 
   return (
     <>
       <NavbarLoggedIn />
-      <div className='top-50'>
+      <p>testing</p>
+      <p>{entry}</p>
+{/*       <div className='top-50'>
         <Breadcrumbs singleEntry={singleEntry} />
       </div>
 
@@ -82,7 +123,8 @@ console.log("Single Entry:", singleEntry);
       ) : (
         <div className='text-red-500'>Sorry.</div>
       )}
-      <Footer />
+      */}
+      <Footer /> 
     </>
   );
 }

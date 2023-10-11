@@ -9,7 +9,7 @@ import {useState, useEffect} from 'react';
 
 export default function Home(){   
     const [allEntries,setAllEntries] = useState([]);
-    
+
     useEffect(() => {
         getEntries()
           .then((entriesData) => setAllEntries(entriesData))

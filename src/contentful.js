@@ -1,5 +1,6 @@
 import { createClient } from 'contentful';
 
+
 const client = createClient({
   space: "lerti9id4rxk",                                       
     /*  import.meta.env.VITE_SPACE_ID, */
@@ -20,4 +21,15 @@ const getEntries = async () => {
   }
 };
 
-export { getEntries };
+const getEntry = async() => {
+  try {
+    const X = await client.getEntry('1645XVOgL8cGdByh6e17Qh');
+    console.log("Hello from getEntry")
+    console.log("Single Entry Test X: ",X);
+    return X.items;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+export { getEntries, getEntry };
