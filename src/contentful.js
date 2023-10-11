@@ -23,7 +23,7 @@ const getEntries = async () => {
 
 const getEntry = async() => {
   try {
-    const X = await client.getEntry('1645XVOgL8cGdByh6e17Qh');
+    const X = await client.getEntry('65vTk3JnOFw7P3onawUAHg');
     console.log("Hello from getEntry")
     console.log("Single Entry Test X: ",X);
     return X;
