@@ -5,8 +5,8 @@ export default function CardSection ({ allEntries }) {
     return (
         <>
         <div className='flex justify-around items-center'>
-        {allEntries.map(({ id,fields, sys }) => (
-          <Card key={id} {...fields} {...sys} />
+        {allEntries.map(({ fields, sys }) => (
+          <Card key={sys.id} {...fields} {...sys} />
         ))}
         
         </div>

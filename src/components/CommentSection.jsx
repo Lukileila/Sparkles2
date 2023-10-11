@@ -35,15 +35,17 @@ export default function CommentSection ( {allEntries}) {
         />
         <button
           onClick={handleCommentSubmit}
-          className="mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          className="btn btn-primary mt-2 px-4 py-2 text-white hover:bg-blue-700"
         >
           Add a Review
         </button>
       </div>
       <div>
-        {allEntries.map(({comments,fields, sys, id}) => (
-          <div key={id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
-           {comments}
+        {allEntries.map(({fields, sys}) => (
+          <div key={sys.id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
+           {fields.comments}
+           {fields.author}
+
           </div>
         ))}
       </div>
