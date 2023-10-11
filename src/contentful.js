@@ -26,7 +26,7 @@ const getEntry = async() => {
     const X = await client.getEntry('1645XVOgL8cGdByh6e17Qh');
     console.log("Hello from getEntry")
     console.log("Single Entry Test X: ",X);
-    return X.items;
+    return X;
   } catch (error) {
     console.error(error.message);
   }

@@ -1,5 +1,6 @@
 /*import { useState, useEffect } from 'react';*/
 /*import { useParams } from 'react-router-dom';*/
+import {useState, useEffect} from 'react';
 /* import Breadcrumbs from '../components/Breadcrumbs';
 import Steps from '../components/Steps';
 import Review from '../components/Review';
@@ -10,31 +11,93 @@ import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
 /* import {  getEntries,  getEntry } from '../contentful'; */
 /* import {createClient, getEntry} from  '../../contentful'; */
-import * as contentful from 'contentful';
+/* import * as contentful from 'contentful'; */
 /* import Spinner from '../components/Spinner';
 import Tag from '../components/Tag';
  */
+import { getEntry } from '../contentful';
+
+
+import CardSection from '../components/CardSection';
+import Card from '../components/Card';
+
+/* 
+                export default function Home(){   
+                  const [allEntries,setAllEntries] = useState([]);
+
+                  useEffect(() => {
+                      getEntries()
+                        .then((entriesData) => setAllEntries(entriesData))
+                        .catch((error) => console.error(error));
+                    }, []);
+
+                  return (
+                  <>
+                  <Navbar/>
+                  <HeroBanner/>
+                  <Search/>
+                  <h2 className="text-2xl font-semibold mb-4 ml-12">Shop</h2>
+                  <CardSection allEntries={allEntries}/>
+                  <Footer/>
+                  </>
+                  )
+  */
+
 export default function ProductPage() {
 
-
-  const client = contentful.createClient({
+/*   const client = contentful.createClient({
     space: "lerti9id4rxk",
     accessToken: "wxR7_bR8_nE62t7-zKSB9fTUNEKFfQmGiiiWNZXJJco"
-  })
+  }) */
 
+  const [entry, setEntry] = useState({})
+/*   const [destructuredEntry, setDestructuredEntry] = useState({}) */
 
-  const entry = async() => {
+/* 
+                    const [allEntries,setAllEntries] = useState([]);
+
+                    useEffect(() => {
+                        getEntries()
+                          .then((entriesData) => setAllEntries(entriesData))
+                          .catch((error) => console.error(error));
+                      }, []); */
+
+useEffect(() => {
+  getEntry('1645XVOgL8cGdByh6e17Qh')
+    .then((entryData) => {setEntry(entryData);
+      console.log("Entry is:",entry)
+
+    console.log("Entry.fields is:",entry.fields)
+    console.log("title:",entry.fields.title)
+    
+    })
+    .catch((error) => console.error(error));
+}, []);
+
+/*  
+useEffect(() => {
+  const { fields, sys } =entry;
+  setDestructuredEntry( {...fields} {...sys} );
+  console.log('destructuredEntry',   destructuredEntry);   
+}, [entry]); */ 
+
+/*
+  const what = async() => {
     try {
-    const entry = await client.getEntry('1645XVOgL8cGdByh6e17Qh')
-     console.log(entry)
-    return 'getEntry return';
+     const x = await client.getEntry('1645XVOgL8cGdByh6e17Qh')
+     console.log(x)
+     setEntry(x)
+    return "entry Return";
   } catch (error) {
     console.error(error.message);
   }
 };
 
-entry();
+ what();
+ */
 
+/*   const key={sys.id} {...fields} {...sys} 
+ const {fields}=entry(); */
   /*const { id } = useParams();
   const [singleEntry, setSingleEntry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);*/
@@ -80,6 +143,24 @@ console.log("Single Entry:", singleEntry);*/
     <>
       <NavbarLoggedIn />
       <p>testing</p>
+      {console.log("unconditional")}
+      {console.log(entry)}
+      {console.log("entry.length ",entry.length)}
+      {0==false&& <p>falsytest</p>}
+      {0==false&&console.log("falsytest")}
+      {entry.length ? console.log("truthyXXX"):console.log("falsyXXX")}
+      {!entry.length && <p>falsy</p>}
+      {!entry.length && console.log("falsy with length XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")}
+      {!entry && console.log("falsy without length XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")}
+      {console.log("entry.length after test:",entry.length)}
+
+      {entry&& <p>truthy</p> }
+      {entry&&console.log("truthy")}
+      {entry&& <p>testing2</p>}
+
+      {!entry.length&& <p>entry.length evalueates to false</p>  }
+      {!entry.length && <Card   key={entry.sys.id}   blurb={entry.fields.blurb} image={entry.fields.image} title={entry.fields.title} id='1645XVOgL8cGdByh6e17Qh' /> }  
+   {/*      <CardSection allEntries={fakeAllEntries} />*/}
 {/*       <div className='top-50'>
         <Breadcrumbs singleEntry={singleEntry} />
       </div>
