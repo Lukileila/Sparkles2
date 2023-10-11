@@ -9,10 +9,11 @@ import CardSection from '../components/CardSection'; */
 import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
 /* import {  getEntries,  getEntry } from '../contentful'; */
-import contentful from  '../contentful';
-import Spinner from '../components/Spinner';
+/* import {createClient, getEntry} from  '../../contentful'; */
+import * as contentful from 'contentful';
+/* import Spinner from '../components/Spinner';
 import Tag from '../components/Tag';
-
+ */
 export default function ProductPage() {
 
 
@@ -22,16 +23,17 @@ export default function ProductPage() {
   })
 
 
-  const getEntry = async() => {
+  const entry = async() => {
     try {
     const entry = await client.getEntry('1645XVOgL8cGdByh6e17Qh')
      console.log(entry)
-    return entry;
+    return 'getEntry return';
   } catch (error) {
     console.error(error.message);
   }
 };
 
+entry();
 
   /*const { id } = useParams();
   const [singleEntry, setSingleEntry] = useState(null);
@@ -78,7 +80,6 @@ console.log("Single Entry:", singleEntry);*/
     <>
       <NavbarLoggedIn />
       <p>testing</p>
-      <p>{entry}</p>
 {/*       <div className='top-50'>
         <Breadcrumbs singleEntry={singleEntry} />
       </div>
