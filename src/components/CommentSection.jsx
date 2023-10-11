@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 import Review from '../components/Review'
 
-export default function CommentSection () {
+export default function CommentSection ( {allEntries}) {
 
    
       const [comment, setComment] = useState('');
@@ -40,13 +41,9 @@ export default function CommentSection () {
         </button>
       </div>
       <div>
-        {comments.map((comment, index) => (
-          <div key={index} className="bg-white p-4 mb-4 rounded shadow">
-            {comment.review}
-            {comment.author}
-            {comment.createdAt}
-            {comment.title}
-            {comment}
+        {allEntries.map(({comments,fields, sys, id}) => (
+          <div key={id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
+           {comments}
           </div>
         ))}
       </div>

@@ -44,7 +44,6 @@ export default function Login(){
                 </label>
               </div>
               <div className="form-control mt-6">
-                {/* Use type="submit" for the button to handle form submission */}
                 <button type="submit" className="btn btn-primary" onClick={handleLogIn}>
                   Login
                 </button>
