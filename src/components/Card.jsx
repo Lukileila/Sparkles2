@@ -1,6 +1,14 @@
-import {Link} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function Card(){    
+
+    const navigate = useNavigate();
+
+    const handleLearnMore = (e) => {
+   e.preventDefault();
+   navigate("/singleproduct");
+}
+
     return (
         
         <div className="card transform hover:scale-105  w-96 bg-base-100 shadow-xl mb-8">
@@ -9,7 +17,7 @@ export default function Card(){
           <h2 className="card-title">Shoes!</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary"><Link to="/singleproduct">Learn More</Link></button>
+            <button className="btn btn-primary" onClick={handleLearnMore}>Learn More</button>
           </div>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function ThemeSwitcher () {
 
     const handleToggle = (e) => {
         if(e.target.checked) {
-            setTheme('dark');
+            setTheme('acid');
         } else {
             setTheme('light');
         }

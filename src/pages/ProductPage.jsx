@@ -4,10 +4,13 @@ import Review from '../components/Review';
 import CommentSection from '../components/CommentSection';
 import Share from '../components/Share';
 import CardSection from '../components/CardSection';
+import NavbarLoggedIn from '../components/NavbarLoggedIn';
+import Footer from '../components/Footer';
 
 export default function ProductPage () {
     return (
 <>
+<NavbarLoggedIn/>
 <div className='top-50'>
 <Breadcrumbs/>
 </div>
@@ -29,7 +32,7 @@ export default function ProductPage () {
            Product Description
           </p>
           <div className="flex flex-col items-start justify-between mb-4">
-            <span className="text-2xl font-semibold">$99.99</span>
+            <span className="text-2xl font-semibold">Price:$99.99</span>
             <button className="btn btn-primary mt-4">Add to Cart</button>
           </div>
           <div className="flex flex-col items-start justify-between ">
@@ -48,6 +51,7 @@ export default function ProductPage () {
     <CommentSection/>
     <h2 className="text-2xl font-semibold mb-4 ml-4">You might also like...</h2>
     <CardSection/>
+    <Footer/>
 </>
 
     )
