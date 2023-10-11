@@ -41,11 +41,9 @@ export default function CommentSection ( {singleEntry}) {
         </button>
       </div>
       <div>
-        {singleEntry.map(({fields, sys}) => (
-          <div key={sys.id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
-           {fields.comments}
-           {fields.author}
-
+        {singleEntry.comments.map((comment) => (
+          <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 rounded shadow">
+           {comment}
           </div>
         ))}
       </div>

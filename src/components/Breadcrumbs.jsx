@@ -19,7 +19,7 @@ export default function Breadcrumbs({ singleEntry}) {
           <Link to="/shop">Shop</Link>
         </li>
         <li className='font-bold'>
-          <a href={`/product/${singleEntry.sys.id}`}>{singleEntry.fields.title}</a>
+          <a href={`/product/${singleEntry.id}`}>{singleEntry.title}</a>
         </li>
       </ul>
     </div>

@@ -20,4 +20,15 @@ const getEntries = async () => {
   }
 };
 
-export { getEntries };
+const getEntry = async(id) => {
+  try {
+    const X = await client.getEntry(`${id}`);
+    console.log("Hello from getEntry")
+    console.log("Single Entry Test X: ",X);
+    return X.fields;
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+export { getEntries, getEntry };
