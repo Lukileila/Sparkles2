@@ -57,8 +57,8 @@ export default function Navbar(){
         </div>
         <div className="navbar-end gap-4">
         <ThemeSwitcher/>
-          <a className="btn btn-primary"><Link to="/login">Login</Link></a>
-          <a className="btn btn-primary"> <Link to="/signup">Sign Up</Link></a>
+          <a className="btn btn-primary buttonShadow"><Link to="/login">Login</Link></a>
+          <a className="btn btn-primary buttonShadow"> <Link to="/signup">Sign Up</Link></a>
         </div>
       </div>
     )

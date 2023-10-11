@@ -1,10 +1,10 @@
 export default function Steps () {
     return (
-        <ul className="steps">
+        <ul className="steps mt-10">
   <li className="step step-primary">Register</li>
-  <li className="step step-primary">Choose plan</li>
-  <li className="step">Purchase</li>
-  <li className="step">Receive Product</li>
+  <li className="step step-primary">Add to Card</li>
+  <li className="step">Payment Method</li>
+  <li className="step">Complete Purchase</li>
 </ul>
     )
 }

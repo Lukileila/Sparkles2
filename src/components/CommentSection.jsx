@@ -35,15 +35,16 @@ export default function CommentSection ( {singleEntry}) {
         />
         <button
           onClick={handleCommentSubmit}
-          className="btn btn-primary mt-2 px-4 py-2 text-white hover:bg-blue-700"
+          className="btn btn-primary mt-2 px-4 py-2 text-white hover:bg-blue-700 buttonShadow"
         >
           Add a Review
         </button>
       </div>
       <div>
         {singleEntry.comments.map((comment) => (
-          <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 rounded shadow">
+          <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 rounded shadow buttonShadow">
            {comment}
+           {comments}
           </div>
         ))}
       </div>

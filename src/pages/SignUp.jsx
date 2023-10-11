@@ -62,7 +62,7 @@ const SignUp = () => {
               </h3>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary" onClick={handleSignUp}>Sign Up</button>
+              <button className="btn btn-primary buttonShadow" onClick={handleSignUp}>Sign Up</button>
             </div>
           </form>
         </div>

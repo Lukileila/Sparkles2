@@ -10,7 +10,7 @@ export default function NavbarLoggedIn(){
 const {name} = useParams();
 
     return (
-        <div className="top-0 z-50 navbar bg-base-100">
+        <div className="top-0 z-50 navbar bg-base-100 buttonShadow">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,7 +36,7 @@ const {name} = useParams();
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-xl" style={{width:'60px'}}><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU' alt="Logo" /></a>
+          <a className="normal-case text-xl " style={{width:'60px'}}><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU' alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -82,7 +82,7 @@ const {name} = useParams();
           <img src="https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg" />
         </div>
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="menu buttonShadow menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <a className="justify-between">
             Profile
