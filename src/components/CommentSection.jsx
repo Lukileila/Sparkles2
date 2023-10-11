@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Review from '../components/Review'
 
-export default function CommentSection ( {allEntries}) {
+export default function CommentSection ( {singleEntry}) {
 
    
       const [comment, setComment] = useState('');
@@ -41,7 +41,7 @@ export default function CommentSection ( {allEntries}) {
         </button>
       </div>
       <div>
-        {allEntries.map(({fields, sys}) => (
+        {singleEntry.map(({fields, sys}) => (
           <div key={sys.id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
            {fields.comments}
            {fields.author}
