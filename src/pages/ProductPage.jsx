@@ -18,7 +18,7 @@ import Tag from '../components/Tag';
 import { getEntry } from '../contentful';
 
 
-import CardSection from '../components/CardSection';
+/* import CardSection from '../components/CardSection'; */
 import Card from '../components/Card';
 
 /* 
@@ -73,6 +73,8 @@ useEffect(() => {
     })
     .catch((error) => console.error(error));
 }, []);
+
+/* useEffect(()=>{},[entry]) */
 
 /*  
 useEffect(() => {
@@ -157,9 +159,10 @@ console.log("Single Entry:", singleEntry);*/
       {entry&& <p>truthy</p> }
       {entry&&console.log("truthy")}
       {entry&& <p>testing2</p>}
-
-      {!entry.length&& <p>entry.length evalueates to false</p>  }
-      {!entry.length && <Card   key={entry.sys.id}   blurb={entry.fields.blurb} image={entry.fields.image} title={entry.fields.title} id='1645XVOgL8cGdByh6e17Qh' /> }  
+      {console.log("entry is:",entry)}
+      {console.log("entry.fields is:",entry.fields)}
+      {entry && <p>entry.length evalueates to true</p>  }
+      {entry && <Card   key={entry.sys.id}   blurb={entry.fields.blurb} image={entry.fields.image} title={entry.fields.title} id='1645XVOgL8cGdByh6e17Qh' /> }  
    {/*      <CardSection allEntries={fakeAllEntries} />*/}
 {/*       <div className='top-50'>
         <Breadcrumbs singleEntry={singleEntry} />
