@@ -1,6 +1,7 @@
 import { createClient } from 'contentful';
 
 
+
 const client = createClient({
   space: "lerti9id4rxk",                                       
     /*  import.meta.env.VITE_SPACE_ID, */
@@ -21,9 +22,9 @@ const getEntries = async () => {
   }
 };
 
-const getEntry = async() => {
+const getEntry = async(id) => {
   try {
-    const X = await client.getEntry('65vTk3JnOFw7P3onawUAHg');
+    const X = await client.getEntry(/* '65vTk3JnOFw7P3onawUAHg' */id);
     console.log("Hello from getEntry")
     console.log("Single Entry Test X: ",X);
     return X;

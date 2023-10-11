@@ -5,13 +5,14 @@ import Card from '../components/Card';
 /* functions */
 import { getEntry } from '../contentful';
 import {useState, useEffect} from 'react';
+import {useParams} from "react-router-dom";
 
 export default function ProductPage() {
-
 const [entry, setEntry] = useState({});
+const {id} = useParams();
 
 useEffect(() => {
-  getEntry('65vTk3JnOFw7P3onawUAHg')
+  getEntry(id)
     .then((entryData) => {setEntry(entryData)})
     .catch((error) => console.error('Error fetching data',error))
 }, []);
