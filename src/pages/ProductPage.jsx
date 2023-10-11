@@ -12,8 +12,7 @@ const [entry, setEntry] = useState({});
 
 useEffect(() => {
   getEntry('65vTk3JnOFw7P3onawUAHg')
-    .then((entryData) => {setEntry(entryData);
-    console.log(entry)})
+    .then((entryData) => {setEntry(entryData)})
     .catch((error) => console.error('Error fetching data',error))
 }, []);
 
@@ -22,12 +21,7 @@ useEffect(() => {
   return (
     <>
       <NavbarLoggedIn />
-      <p>testing</p>
-        {entry&&console.log("entry is truthy")}
-        {entry==={}?console.log("entry==={} is truthy"):console.log("entry==={} is truthy")}
-        {console.log("entry is",entry)}
-        {console.log("entry.fields is",entry.fields)} {/**/}
-        {0 && <Card   key={entry.sys.id}   blurb={entry.fields.blurb} image={entry.fields.image} title={entry.fields.title} id='1645XVOgL8cGdByh6e17Qh' /> }
+        {!(Object.keys(entry).length===0) && <Card   key={entry.sys.id}   blurb={entry.fields.blurb} image={entry.fields.image} title={entry.fields.title} id='1645XVOgL8cGdByh6e17Qh' /> }
       <Footer /> 
     </>
   );
