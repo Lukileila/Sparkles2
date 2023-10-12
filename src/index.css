@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.buttonShadow{
+    filter: drop-shadow(5px 5px #000);
+ }

@@ -44,7 +44,7 @@ export default function Login(){
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button type="submit" className="btn btn-primary" onClick={handleLogIn}>
+                <button type="submit " className="btn btn-primary buttonShadow" onClick={handleLogIn}>
                   Login
                 </button>
               </div>

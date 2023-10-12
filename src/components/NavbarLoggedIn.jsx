@@ -1,15 +1,20 @@
 import {Link, NavLink} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
+import { useParams } from "react-router-dom";
+
+
 
 
 export default function NavbarLoggedIn(){  
   
+const {name} = useParams();
+
     return (
-        <div className="top-0 z-50 navbar bg-base-100">
+        <div className="top-0 z-50 navbar bg-base-100 buttonShadow">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+              <svg xmlns="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
            
@@ -31,7 +36,7 @@ export default function NavbarLoggedIn(){
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-xl" style={{width:'120px'}}><img src='' alt="Logo" /></a>
+          <a className="normal-case text-xl " style={{width:'60px'}}><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU' alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -41,7 +46,7 @@ export default function NavbarLoggedIn(){
                 return {
                   fontWeight: isActive ? "bold" : "",  };
                 }}
-            to="/">Home</NavLink></a>  </li>
+            to={`/user/${name}`}>Home</NavLink></a>  </li>
             <li><a> <Link to="/entry">About</Link></a></li>
             <li tabIndex={0}>
               <details>
@@ -55,12 +60,18 @@ export default function NavbarLoggedIn(){
             <li><a>Contact</a></li>
           </ul>
         </div>
-        <div className="navbar-end gap-4">
+        <div className="navbar-end gap-3 ">
         <ThemeSwitcher/>
-        <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content  bg-base-100 shadow">
-        <div className="card-body">
-          <div className="card-actions">
-            <button className="btn btn-primary">View cart</button>
+        <div>
+        <div>
+          <div >
+            <button className="btn btn-ghost">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+</svg>
+            </button>
+           
+
           </div>
         </div>
       </div>
@@ -68,10 +79,10 @@ export default function NavbarLoggedIn(){
     <div className="dropdown dropdown-end">
       <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
-          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          <img src="https://wallpapers.com/images/hd/cool-profile-picture-87h46gcobjl5e4xu.jpg" />
         </div>
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="menu buttonShadow menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <li>
           <a className="justify-between">
             Profile

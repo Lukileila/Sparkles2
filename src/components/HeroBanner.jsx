@@ -8,9 +8,9 @@ const {name} = useParams();
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Welcome {name}</h1>
-            <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-            <button className="btn btn-primary">Get Started</button>
+            <h1 className="mb-5 text-5xl font-bold">Welcome back to Sparkles Comics Store {name}!</h1>
+            <p className="mb-5">Your gateway to a universe where heroes rise, villains fall, and epic adventures await! Immerse yourself in the thrilling world of comics, where every page is a portal to extraordinary realms and daring exploits..</p>
+            <button className="btn btn-primary buttonShadow">Shop Now</button>
           </div>
         </div>
       </div>
