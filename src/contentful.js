@@ -10,7 +10,7 @@ const client = createClient({
 const getEntries = async () => {
   try {
     const getSomeEntries = await client.getEntries({
-      content_type: 'product', 
+      content_type: 'product'
     });
 
     console.log(getSomeEntries.items);
