@@ -25,8 +25,6 @@ const getEntries = async () => {
 const getEntry = async(id) => {
   try {
     const X = await client.getEntry(/* '65vTk3JnOFw7P3onawUAHg' */id);
-    console.log("Hello from getEntry")
-    console.log("Single Entry Test X: ",X);
     return X;
   } catch (error) {
     console.error(error.message);

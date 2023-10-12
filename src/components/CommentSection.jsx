@@ -45,7 +45,6 @@ export default function CommentSection ( {allEntries}) {
           <div key={sys.id} {...fields} {...sys}  className="bg-white p-4 mb-4 rounded shadow">
            {fields.comments}
            {fields.author}
-
           </div>
         ))}
       </div>
