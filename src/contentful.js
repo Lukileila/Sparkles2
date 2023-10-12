@@ -24,7 +24,7 @@ const getEntries = async () => {
 
 const getEntry = async(id) => {
   try {
-    const X = await client.getEntry(/* '65vTk3JnOFw7P3onawUAHg' */id);
+    const X = await client.getEntry(id);
     return X;
   } catch (error) {
     console.error(error.message);

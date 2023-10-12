@@ -15,7 +15,7 @@ export default function Card({id, title, image, blurb}){
     return (
         
         <div className="card transform hover:scale-105  w-96 bg-base-100 shadow-xl mb-8">
-        {image?
+        {image?,
           <figure><img src={image.fields.file.url} alt="comic image" /></figure> :
           <figure><img src={"https://www.allianceplast.com/wp-content/uploads/no-image-1024x1024.png"} alt="no image available" /></figure>
         }
