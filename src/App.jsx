@@ -4,16 +4,14 @@ import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Error from './pages/Error.jsx';
 import ProductPage from './pages/ProductPage.jsx';
-import Layout from './components/Layout.jsx';
 import HomeLoggedIn from './pages/HomeLoggedIn.jsx'
 import {getEntries} from './contentful.js'
+import {useState, useEffect} from 'react'
 
 function App() {
-const [userName, setUserName]= useState("Harun");
-
-
+  const [userName, setUserName]= useState("Harun");
   const [allEntries,setAllEntries] = useState([]);
-    
+      
   useEffect(() => {
       getEntries()
         .then((entriesData) => setAllEntries(entriesData))
@@ -24,15 +22,13 @@ const [userName, setUserName]= useState("Harun");
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout/>}>
-          <Route index element={<Home allEntries={allEntries}/>} />
-          <Route path='user/:name' element={<HomeLoggedIn allEntries={allEntries}/>}/>
-          <Route path="entry" element={<Entry />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path='singleproduct/:id' element={<ProductPage allEntries={allEntries}/>} />
-          <Route path="*" element={<Error />} />
-          </Route>
+          <Route index              element={<Home allEntries={allEntries} userName={userName} />} />
+          <Route path="/"           element={<Home allEntries={allEntries} userName={userName} />} />
+          <Route path='user/:name'  element={<HomeLoggedIn allEntries={allEntries} userName={userName} />}/>
+          <Route path="login"       element={<Login  userName={userName}  setUserName={setUserName} />} />
+          <Route path="signup"      element={<SignUp  userName={userName} setUserName={setUserName}  />} />
+          <Route path='singleproduct/:id' element={<ProductPage allEntries={allEntries} userName={userName} />} />
+          <Route path="*"           element={<Error userName={userName}  />} />
       </Routes>
     </BrowserRouter>
   )

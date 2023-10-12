@@ -20,7 +20,7 @@ export default function Home({userName}){
 
     return (
     <>
-       <div className='overflow-x-hidden'></div>
+       <div className='overflow-x-hidden'>
       <Layout userName={userName}>
         <HeroBanner userName={userName}/>
         <Search/>
