@@ -1,21 +1,46 @@
 /* eslint-disable react/prop-types */
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import Card from './Card';
+import Spinner from './Spinner';
 
-export default function CardSection ({ allEntries }) {
-    return (
-        <>
-        <div className='flex justify-around items-center'>
-        {allEntries.length > 0 ? (
-  <div className='flex justify-around items-center flex-wrap'>
-    {allEntries.map(({ fields, sys }) => (
-      <Card key={sys.id} {...fields} {...sys} />
-    ))}
-  </div>
-) : (
-  <p>No products available.</p>
-)}
-        
-        </div>
-        </>
-    )
+export default function CardSection({ allEntries }) {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      partialVisibilityGutter: 40,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      partialVisibilityGutter: 30,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      partialVisibilityGutter: 30,
+    },
+  };
+
+  return (
+    <div className="carousel-container">
+      {allEntries.length > 0 ? (
+        <Carousel
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={3000}
+          keyBoardControl={true}
+          transitionDuration={500}
+        >
+          {allEntries.map(({ fields, sys }) => (
+            <Card key={sys.id} {...fields} {...sys} />
+          ))}
+        </Carousel>
+      ) : (
+        <Spinner />
+      )}
+    </div>
+  );
 }

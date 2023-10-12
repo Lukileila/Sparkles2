@@ -5,12 +5,12 @@ import { useParams } from 'react-router-dom';
 export default function Breadcrumbs({ singleEntry}) {
   const { name } = useParams();
 
-  if (!singleEntry || !singleEntry.sys || !singleEntry.sys.id) {
+  if (!singleEntry) {
     return null; 
   }
 
   return (
-    <div className="text-sm breadcrumbs ml-10">
+    <div className="text-sm breadcrumbs ml-10 mt-8">
       <ul>
         <li>
           <Link to={`/user/${name}`}>Home</Link>
@@ -19,7 +19,7 @@ export default function Breadcrumbs({ singleEntry}) {
           <Link to="/shop">Shop</Link>
         </li>
         <li className='font-bold'>
-          <a href={`/product/${singleEntry.sys.id}`}>{singleEntry.fields.title}</a>
+          <a href={`/product/${singleEntry.id}`}>{singleEntry.title}</a>
         </li>
       </ul>
     </div>

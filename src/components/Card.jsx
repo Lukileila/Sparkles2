@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 
-export default function Card({id, title, image, blurb}){    
-
-    const navigate = useNavigate();
+export default function Card({ id, title, image, blurb }) {
+  const navigate = useNavigate();
 
     const handleLearnMore = (e) => {
    e.preventDefault();
@@ -23,11 +22,13 @@ export default function Card({id, title, image, blurb}){
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <p>{blurb}</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary" onClick={handleLearnMore}>Learn More</button>
-          </div>
+        </div>
+        <div className="card-actions justify-end">
+          <button className="btn btn-primary buttonShadow" onClick={handleLearnMore}>
+            Learn More
+          </button>
         </div>
       </div>
-     
-    )
+    </div>
+  );
 }

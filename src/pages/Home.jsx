@@ -20,12 +20,14 @@ export default function Home({userName}){
 
     return (
     <>
+       <div className='overflow-x-hidden'></div>
       <Layout userName={userName}>
         <HeroBanner userName={userName}/>
         <Search/>
         <h2 className="text-2xl font-semibold mb-4 ml-12">Shop</h2>
         <CardSection allEntries={allEntries}/>
       </Layout>
+      </div>
     </>
     )
 }

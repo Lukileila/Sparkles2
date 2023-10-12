@@ -4,23 +4,35 @@ import Login from './pages/Login.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Error from './pages/Error.jsx';
 import ProductPage from './pages/ProductPage.jsx';
-import HomeLoggedIn from './pages/HomeLoggedIn.jsx';
-import {useState} from 'react';
+import Layout from './components/Layout.jsx';
+import HomeLoggedIn from './pages/HomeLoggedIn.jsx'
+import {getEntries} from './contentful.js'
 
 function App() {
 const [userName, setUserName]= useState("Harun");
 
 
+  const [allEntries,setAllEntries] = useState([]);
+    
+  useEffect(() => {
+      getEntries()
+        .then((entriesData) => setAllEntries(entriesData))
+        .catch((error) => console.error(error));
+    }, []);
+
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home userName={userName}/>} />
-        <Route path='/' element={<Home userName={userName} />}/>
-        <Route path='user/:name' element={<HomeLoggedIn userName={userName}/>}/>
-        <Route path="login" element={<Login userName={userName} />} />
-        <Route path="signup" element={<SignUp userName={userName} />} />
-        <Route path='singleproduct/:id' element={<ProductPage userName={userName}/>} />
-        <Route path="*" element={<Error userName={userName} />} />
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home allEntries={allEntries}/>} />
+          <Route path='user/:name' element={<HomeLoggedIn allEntries={allEntries}/>}/>
+          <Route path="entry" element={<Entry />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path='singleproduct/:id' element={<ProductPage allEntries={allEntries}/>} />
+          <Route path="*" element={<Error />} />
+          </Route>
       </Routes>
     </BrowserRouter>
   )
