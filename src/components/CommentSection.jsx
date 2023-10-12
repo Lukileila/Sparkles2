@@ -28,22 +28,22 @@ export default function CommentSection ( {singleEntry}) {
       <div className="mb-4">
         <input
           type="text"
-          className="w-full p-2 border rounded"
+          className="w-full p-2 border rounded buttonShadow"
           placeholder="Add a comment..."
           value={comment}
           onChange={handleCommentChange}
         />
         <button
           onClick={handleCommentSubmit}
-          className="btn btn-primary mt-2 px-4 py-2 text-white hover:bg-blue-700 buttonShadow"
+          className="btn btn-primary mt-4 px-4 py-2 text-white hover:bg-blue-700 buttonShadow"
         >
           Add a Review
         </button>
       </div>
       <div>
         {singleEntry.comments.map((comment) => (
-          <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 rounded shadow buttonShadow">
-           {comment}
+          <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 mt-4 rounded shadow buttonShadow">
+          {comment}
            {comments}
           </div>
         ))}

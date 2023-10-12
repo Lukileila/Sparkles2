@@ -18,6 +18,8 @@ export default function ProductPage({allEntries}) {
   const [singleEntry, setSingleEntry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log('all Entries',allEntries)
+
   useEffect(() => {
       getEntry(id)
         .then((entryData) => {
@@ -76,14 +78,18 @@ console.log("Single Entry:", singleEntry);
               </div>
             </div>
           </div>
-          <Share />
+         
           <CommentSection singleEntry={singleEntry} />
-          <h2 className='text-2xl font-semibold mb-4 ml-4'>You might also like...</h2>
-          <CardSection allEntries={allEntries} />
+          <h2 className="text-2xl font-semibold">Share on: </h2> 
+          <Share />
+          
+          
         </div>
       ) : (
         <div className='text-red-500'>Sorry.</div>
       )}
+      <h2 className='text-2xl font-semibold mb-4 ml-4 mt-4'>You might also like...</h2>
+      <CardSection allEntries={allEntries} />
       <Footer />
     </>
   );
