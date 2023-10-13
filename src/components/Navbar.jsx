@@ -2,6 +2,7 @@ import {Link, NavLink} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 
+
 export default function Navbar(){  
   
     return (
@@ -31,7 +32,7 @@ export default function Navbar(){
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-sm" style={{width:'60px'}}><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU' alt="Logo" /></a>
+          <a className="normal-case text-sm" style={{width:'60px'}}><img src='' alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
