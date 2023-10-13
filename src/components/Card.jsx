@@ -12,7 +12,7 @@ export default function Card({ id, title, image, blurb }) {
   return (
     <div className="card transform hover:scale-105 w-50 h-120 bg-base-100 shadow-xl mb-8 buttonShadow mx-4">
       <figure>
-        <img className="object-cover h-1/2 w-full" src={image.fields.file.url} alt="comics" />
+        <img className="object-cover aspect-video rounded max-w-[500px]" src={image.fields.file.url} alt="comics" />
       </figure>
       <div className="card-body h-1/2 flex flex-col justify-between">
         <div>
