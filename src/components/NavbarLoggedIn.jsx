@@ -1,6 +1,7 @@
 import {Link, NavLink} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
 import { useParams } from "react-router-dom";
+import logo from '../assets/images/favicon/sparkleslogo.png';
 
 
 
@@ -36,7 +37,7 @@ const {name} = useParams();
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-xl " style={{width:'60px'}}><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlPA9rX9idZ_8ViKtR8vipU1DyeNNbATvTEw&usqp=CAU' alt="Logo" /></a>
+          <a className="normal-case text-xl -ml-10 " style={{width:'300px'}}><img src={logo} alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

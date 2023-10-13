@@ -1,5 +1,6 @@
 import {Link, NavLink} from "react-router-dom";
 import ThemeSwitcher from "./ThemeSwitcher";
+import logo from '../assets/images/favicon/sparkleslogo.png';
 
 
 
@@ -32,7 +33,7 @@ export default function Navbar(){
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <a className="normal-case text-sm" style={{width:'60px'}}><img src='' alt="Logo" /></a>
+          <a className="normal-case text-sm -ml-10" style={{width:'300px'}}><img src={logo} alt="Logo" /></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
