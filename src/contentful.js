@@ -1,10 +1,9 @@
 import { createClient } from 'contentful';
 
+
 const client = createClient({
-  space: "lerti9id4rxk",                                       
-    /*  import.meta.env.VITE_SPACE_ID, */
-  accessToken: "wxR7_bR8_nE62t7-zKSB9fTUNEKFfQmGiiiWNZXJJco"                       
-    /* import.meta.env.VITE_ACCESS_TOKEN, */
+  space: import.meta.env.VITE_SPACE_ID,
+  accessToken: import.meta.env.VITE_ACCESS_TOKEN,
 });
 
 const getEntries = async () => {
