@@ -15,14 +15,13 @@ function App() {
   const [allEntries,setAllEntries] = useState([]);
 
   useEffect( ()=>{
-    console.log("hi from useEffect");
-    async function getAllTheStupidProducts(){
-      console.log("hi from async");
-      const response = await fetch("localhost:localhost:3000/products");
+    (async function getAllTheStupidProducts(){
+      console.log("hi from the async");
+      const response = await fetch("http://localhost:3000/products");
       setAllEntries(await response.json());
-      console.log(allEntries);
-    }
-},[]);
+      console.log("all Entries on App.js:",allEntries);
+    } )();
+  },[]);
   
     
 /*   useEffect(() => {
@@ -36,7 +35,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
-          <Route index element={<Home allEntries={allEntries}/>} />
+        <Route index element={<Home allEntries={allEntries}/>} /> 
 {/*           <Route path='user/:name' element={<HomeLoggedIn allEntries={allEntries}/>}/> */}
 {/*           <Route path="entry" element={<Entry />} /> */}
     {/*       <Route path="login" element={<Login />} /> */}

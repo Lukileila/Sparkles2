@@ -23,6 +23,7 @@ export default function CardSection({ allEntries }) {
     },
   };
 
+  console.log("Cardsection allEntries:"+allEntries)
   return (
     <div className="carousel-container">
       {allEntries.length > 0 ? (
@@ -34,9 +35,10 @@ export default function CardSection({ allEntries }) {
           keyBoardControl={true}
           transitionDuration={500}
         >
-          {allEntries.map(({ fields, sys }) => (
-            <Card key={sys.id} {...fields} {...sys} />
-          ))}
+          {allEntries.map((x) => {
+            console.log(`card section mapping allEntries:`+{...x});
+            <Card key={x} />
+          })}
         </Carousel>
       ) : (
         <Spinner />
