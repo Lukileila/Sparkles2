@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 /* import { useNavigate } from "react-router-dom"; */
 
-export default function Card({ /* productID, */ Title, imageURL, Blurb }) {
+export default function Card({singleProduct:{Title, ImageURL, Blurb}}) {
+  /* productID, *//*  Title, imageURL, Blurb  */
  /*  const navigate = useNavigate(); */
-  console.log("hi from the Card Section!")
+  console.log("hi from the Card!");
 
 /*   const handleLearnMore = (e) => {
     e.preventDefault();
@@ -12,8 +13,9 @@ export default function Card({ /* productID, */ Title, imageURL, Blurb }) {
 
   return (
     <div className="card transform hover:scale-105 w-50 h-120 bg-base-100 shadow-xl mb-8 buttonShadow mx-4">
+      {console.log(`hi from the Card Section return!`,ImageURL)}
       <figure>
-        <img className="object-cover aspect-video rounded max-w-[500px]" src={imageURL} alt="comics" />
+        <img className="object-cover aspect-video rounded max-w-[500px]" src={ImageURL} alt="comics" />
       </figure>
       <div className="card-body h-1/2 flex flex-col justify-between">
         <div>

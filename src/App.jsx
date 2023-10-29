@@ -16,10 +16,8 @@ function App() {
 
   useEffect( ()=>{
     (async function getAllTheStupidProducts(){
-      console.log("hi from the async");
       const response = await fetch("http://localhost:3000/products");
       setAllEntries(await response.json());
-      console.log("all Entries on App.js:",allEntries);
     } )();
   },[]);
   
