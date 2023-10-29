@@ -3,7 +3,7 @@ import Search from '../components/Search';
 import CardSection from '../components/CardSection';
 import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
-import { getEntries } from '../contentful';
+/* import { getEntries } from '../contentful'; */
 import {useState, useEffect} from 'react';
 
 
@@ -12,11 +12,11 @@ import {useState, useEffect} from 'react';
 export default function HomeLoggedIn(){    
     const [allEntries,setAllEntries] = useState([]);
     
-    useEffect(() => {
+/*     useEffect(() => {
         getEntries()
           .then((entriesData) => setAllEntries(entriesData))
           .catch((error) => console.error(error));
-      }, []);
+      }, []); */
 
 
     return (

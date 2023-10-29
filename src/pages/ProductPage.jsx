@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, /* useEffect  */} from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Steps from '../components/Steps';
@@ -8,7 +8,7 @@ import Share from '../components/Share';
 import CardSection from '../components/CardSection';
 import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
-import { getEntry } from '../contentful';
+/* import { getEntry } from '../contentful'; */
 import Spinner from '../components/Spinner';
 import Tag from '../components/Tag';
 
@@ -20,7 +20,7 @@ export default function ProductPage({allEntries}) {
 
   console.log('all Entries',allEntries)
 
-  useEffect(() => {
+/*   useEffect(() => {
       getEntry(id)
         .then((entryData) => {
           setSingleEntry(entryData);
@@ -32,7 +32,7 @@ export default function ProductPage({allEntries}) {
           setIsLoading(false);
         });
     
-  }, [id]);
+  }, [id]); */
 
 console.log("ProductPage rendered with id:", id);
 console.log("Single Entry:", singleEntry);
