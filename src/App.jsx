@@ -4,7 +4,7 @@ import Home from './pages/Home.jsx';
 /* import Login from './pages/Login.jsx'; */
 /* import SignUp from './pages/SignUp.jsx'; */
 import Error from './pages/Error.jsx';
-/* import ProductPage from './pages/ProductPage.jsx'; */
+import ProductPage from './pages/ProductPage.jsx';
 import Layout from './components/Layout.jsx';
 /* import HomeLoggedIn from './pages/HomeLoggedIn.jsx'; */
 import {useState, useEffect} from 'react';
@@ -14,12 +14,24 @@ function App() {
 
   const [allEntries,setAllEntries] = useState([]);
 
-  useEffect( ()=>{
-    (async function getAllTheStupidProducts(){
-      const response = await fetch("http://localhost:3000/products");
-      setAllEntries(await response.json());
-    } )();
-  },[]);
+ 
+  useEffect(() => {
+    async function getAllProducts() {
+      try {
+        const response = await fetch("http://localhost:3000/products");
+        if (response.ok) {
+          const data = await response.json();
+          setAllEntries(data);
+        } else {
+          throw new Error("Failed to fetch products");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getAllProducts();
+  }, []);
   
     
 /*   useEffect(() => {
@@ -38,7 +50,8 @@ function App() {
 {/*           <Route path="entry" element={<Entry />} /> */}
     {/*       <Route path="login" element={<Login />} /> */}
 {/*           <Route path="signup" element={<SignUp />} /> */}
-   {/*        <Route path='singleproduct/:id' element={<ProductPage allEntries={allEntries}/>} /> */}
+<Route path='singleproduct/:productId' element={<ProductPage />} />
+
           <Route path="*" element={<Error />} />
           </Route>
       </Routes>

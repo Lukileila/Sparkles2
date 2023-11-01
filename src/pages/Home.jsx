@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 
+// eslint-disable-next-line react/prop-types
 export default function Home({allEntries}){   
 
     return (
