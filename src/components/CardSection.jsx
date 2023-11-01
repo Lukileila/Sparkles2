@@ -40,12 +40,10 @@ export default function CardSection({allEntries}) {
 
         {console.log("Something",allEntries.map((x)=>x))}
         {allEntries.map((x)=>
-        {return <Card singleProduct={x}/> }
+        {return <Card key={x} singleProduct={x}/> }
         )}
 
          </Carousel> 
-
-
 
       ) : (
         <Spinner />

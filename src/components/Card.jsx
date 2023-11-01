@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-/* import { useNavigate } from "react-router-dom"; */
+import { useNavigate } from "react-router-dom";
 
-export default function Card({singleProduct:{Title, ImageURL, Blurb}}) {
+export default function Card({singleProduct:{productID,Title, ImageURL, Blurb}}) {
   /* productID, *//*  Title, imageURL, Blurb  */
- /*  const navigate = useNavigate(); */
+  const navigate = useNavigate();
   console.log("hi from the Card!");
 
-/*   const handleLearnMore = (e) => {
+const handleLearnMore = (e) => {
     e.preventDefault();
     navigate(`/singleproduct/${productID}`);
-  }; */
+  }; 
 
   return (
     <div className="card transform hover:scale-105 w-50 h-120 bg-base-100 shadow-xl mb-8 buttonShadow mx-4">
@@ -23,7 +23,7 @@ export default function Card({singleProduct:{Title, ImageURL, Blurb}}) {
           <p>{Blurb}</p>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary buttonShadow" /* onClick={handleLearnMore} */>
+          <button className="btn btn-primary buttonShadow" onClick={handleLearnMore} >
             Learn More
           </button>
         </div>
