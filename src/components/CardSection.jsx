@@ -4,7 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import Card from './Card';
 import Spinner from './Spinner';
 
-export default function CardSection({ allEntries }) {
+export default function CardSection({allEntries}) {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -22,22 +22,31 @@ export default function CardSection({ allEntries }) {
       partialVisibilityGutter: 30,
     },
   };
+  console.log("Cardsection allEntries:",allEntries)
 
   return (
     <div className="carousel-container">
       {allEntries.length > 0 ? (
-        <Carousel
+
+
+       <Carousel
           responsive={responsive}
           infinite={true}
           autoPlay={true}
           autoPlaySpeed={3000}
           keyBoardControl={true}
           transitionDuration={500}
-        >
-          {allEntries.map(({ fields, sys }) => (
-            <Card key={sys.id} {...fields} {...sys} />
-          ))}
-        </Carousel>
+        > 
+
+        {console.log("Something",allEntries.map((x)=>x))}
+        {allEntries.map((x)=>
+        {return <Card singleProduct={x}/> }
+        )}
+
+         </Carousel> 
+
+
+
       ) : (
         <Spinner />
       )}

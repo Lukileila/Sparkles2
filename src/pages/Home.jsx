@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 
 export default function Home({allEntries}){   
-  
+
     return (
     <>
     <div className='overflow-x-hidden'>
