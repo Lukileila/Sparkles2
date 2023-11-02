@@ -50,7 +50,7 @@ function App() {
 {/*           <Route path="entry" element={<Entry />} /> */}
     {/*       <Route path="login" element={<Login />} /> */}
 {/*           <Route path="signup" element={<SignUp />} /> */}
-<Route path='singleproduct/:productId' element={<ProductPage />} />
+<Route path='singleproduct/:productId' allEntries={allEntries} element={<ProductPage />} />
 
           <Route path="*" element={<Error />} />
           </Route>
