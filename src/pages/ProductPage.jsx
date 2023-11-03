@@ -2,13 +2,16 @@ import  { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumbs from '../components/Breadcrumbs';
 import Steps from '../components/Steps';
-/*import CommentSection from '../components/CommentSection';*/
+import CommentSection from '../components/CommentSection';
 import Share from '../components/Share';
 /*import CardSection from '../components/CardSection';*/
 import NavbarLoggedIn from '../components/NavbarLoggedIn';
 import Footer from '../components/Footer';
 import Spinner from '../components/Spinner';
 
+
+
+const { DEV, VITE_BACKEND_URL_DEPLOY, VITE_BACKEND_URL_DEV } = import.meta.env;
 
 
 // eslint-disable-next-line react/prop-types
@@ -20,8 +23,10 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        setIsLoading(true); // Set loading state to true before making the API call
-        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        setIsLoading(true);
+        const response = await fetch(`${DEV 
+          ? VITE_BACKEND_URL_DEV 
+          : VITE_BACKEND_URL_DEPLOY}/products/${productId}`);
         if (response.ok) {
           const productData = await response.json();
           setSingleProduct(productData);
@@ -32,7 +37,7 @@ const ProductPage = () => {
         console.error('Error fetching product:', error);
         setSingleProduct(null);
       } finally {
-        setIsLoading(false); // Set loading state to false after the API call completes (success or error)
+        setIsLoading(false); 
       }
     };
   
@@ -85,7 +90,7 @@ const ProductPage = () => {
             </div>
           </div>
          
-         {/* <CommentSection singleProduct={singleProduct} />*/}
+         <CommentSection />
           <h2 className="text-2xl font-semibold">Share on: </h2> 
           <Share />
           

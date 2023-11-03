@@ -10,6 +10,11 @@ import Layout from './components/Layout.jsx';
 import {useState, useEffect} from 'react';
 /* import {getEntries} from './contentful.js' */
 
+
+
+const { DEV, VITE_BACKEND_URL_DEPLOY, VITE_BACKEND_URL_DEV } = import.meta.env;
+
+
 function App() {
 
   const [allEntries,setAllEntries] = useState([]);
@@ -18,7 +23,9 @@ function App() {
   useEffect(() => {
     async function getAllProducts() {
       try {
-        const response = await fetch("http://localhost:3000/products");
+        const response = await fetch(`${DEV 
+          ? VITE_BACKEND_URL_DEV 
+          : VITE_BACKEND_URL_DEPLOY }/products`);
         if (response.ok) {
           const data = await response.json();
           setAllEntries(data);
@@ -50,7 +57,7 @@ function App() {
 {/*           <Route path="entry" element={<Entry />} /> */}
     {/*       <Route path="login" element={<Login />} /> */}
 {/*           <Route path="signup" element={<SignUp />} /> */}
-<Route path='singleproduct/:productId' element={<ProductPage />} />
+<Route path='singleproduct/:productId' allEntries={allEntries} element={<ProductPage />} />
 
           <Route path="*" element={<Error />} />
           </Route>

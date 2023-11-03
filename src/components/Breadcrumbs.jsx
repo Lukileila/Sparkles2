@@ -2,10 +2,11 @@
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-export default function Breadcrumbs({ singleEntry}) {
+export default function Breadcrumbs({ singleProduct}) {
   const { name } = useParams();
+  const { productId } = useParams();
 
-  if (!singleEntry) {
+  if (!singleProduct) {
     return null; 
   }
 
@@ -19,7 +20,7 @@ export default function Breadcrumbs({ singleEntry}) {
           <Link to="/shop">Shop</Link>
         </li>
         <li className='font-bold'>
-          <a href={`/product/${singleEntry.id}`}>{singleEntry.title}</a>
+          <a href={`/singleproduct/${productId}`}>{singleProduct.Title}</a>
         </li>
       </ul>
     </div>

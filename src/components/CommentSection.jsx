@@ -1,13 +1,40 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Review from '../components/Review';
 import { useParams } from 'react-router-dom';
 
-export default function CommentSection({ singleEntry }) {
+const { DEV, VITE_BACKEND_URL_DEPLOY, VITE_BACKEND_URL_DEV } = import.meta.env;
+
+const CommentSection = () => {
+  const { productId } = useParams();
   const [comment, setComment] = useState({ title: '', review: '' });
   const [comments, setComments] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
-  const {name} = useParams();
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const response = await fetch(`${DEV 
+          ? VITE_BACKEND_URL_DEV 
+          : VITE_BACKEND_URL_DEPLOY}/products/${productId}/comments`);
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data);
+          setComments(data);
+        } else {
+          throw new Error('Failed to fetch comments');
+        }
+      } catch (error) {
+        console.error('Error fetching comments:', error);
+        setComments([]);
+      }
+    };
+
+    if (productId) {
+      fetchComments();
+    } else {
+      setComments([]);
+    }
+  }, [productId]);
 
   const handleCommentChange = (e) => {
     const { name, value } = e.target;
@@ -26,15 +53,8 @@ export default function CommentSection({ singleEntry }) {
       localStorage.setItem('comments', JSON.stringify(updatedComments));
       setComment({ title: '', review: '' });
       setShowForm(false);
-    } 
-  };
-
-  useEffect(() => {
-    const storedComments = localStorage.getItem('comments');
-    if (storedComments) {
-      setComments(JSON.parse(storedComments));
     }
-  }, []); 
+  };
 
   const handleAddReview = (e) => {
     e.preventDefault();
@@ -56,7 +76,7 @@ export default function CommentSection({ singleEntry }) {
 
       <div className="mb-4">
         <form onSubmit={handleCommentSubmit}>
-          {showForm ? (
+          {showForm && (
             <>
               <label htmlFor="title">
                 Title
@@ -80,9 +100,9 @@ export default function CommentSection({ singleEntry }) {
                   onChange={handleCommentChange}
                 />
               </label>
-              <label htmlFor="rating">Rating: <Review/></label>
+              <label htmlFor="rating">Rating: <Review /></label>
             </>
-          ) : null}
+          )}
 
           <div className="mt-4">
             {showForm ? (
@@ -103,25 +123,21 @@ export default function CommentSection({ singleEntry }) {
         </form>
       </div>
 
-      {comments.map((comment) => (
-        <div key={crypto.randomUUID()} className="bg-white p-4 mb-4 mt-4 rounded shadow buttonShadow w-100">
-          <h3>{comment.title}</h3>
-          <p>by {comment.author}</p>
-          <Review/>
-          <p>{comment.review}</p>
-        </div>
-      ))}
-
       <div>
-        {singleEntry.comments.map((comment) => (
-          <div key={comment.id} className="bg-white p-4 mb-4 mt-4 rounded shadow buttonShadow w-100">
-            <h3>{comment}</h3>
-          <p>by {comment.author}</p>
-          <Review/>
-          <p>{comment.review}</p>
-          </div>
-        ))}
+        {comments.length > 0 ? (
+          comments.map((comment) => (
+            <div key={comment.commentID} className="bg-white p-4 mb-4 mt-4 rounded shadow buttonShadow w-100">
+              <h3>Rating: {comment.rating}</h3>
+              <p>by {comment.author}</p>
+              <p>Review: {comment.review}</p>
+            </div>
+          ))
+        ) : (
+          <p>No comments available for this product.</p>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default CommentSection;
