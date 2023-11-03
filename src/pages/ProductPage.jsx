@@ -11,6 +11,9 @@ import Spinner from '../components/Spinner';
 
 
 
+const { DEV, VITE_BACKEND_URL_DEPLOY, VITE_BACKEND_URL_DEV } = import.meta.env;
+
+
 // eslint-disable-next-line react/prop-types
 const ProductPage = () => {
   const { productId } = useParams();
@@ -21,7 +24,9 @@ const ProductPage = () => {
     const fetchProduct = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:3000/products/${productId}`);
+        const response = await fetch(`${DEV 
+          ? VITE_BACKEND_URL_DEV 
+          : VITE_BACKEND_URL_DEPLOY}/products/${productId}`);
         if (response.ok) {
           const productData = await response.json();
           setSingleProduct(productData);

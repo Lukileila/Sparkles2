@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import Review from '../components/Review';
 import { useParams } from 'react-router-dom';
 
+const { DEV, VITE_BACKEND_URL_DEPLOY, VITE_BACKEND_URL_DEV } = import.meta.env;
+
 const CommentSection = () => {
   const { productId } = useParams();
   const [comment, setComment] = useState({ title: '', review: '' });
@@ -11,7 +13,9 @@ const CommentSection = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/products/${productId}/comments`);
+        const response = await fetch(`${DEV 
+          ? VITE_BACKEND_URL_DEV 
+          : VITE_BACKEND_URL_DEPLOY}/products/${productId}/comments`);
         if (response.ok) {
           const data = await response.json();
           console.log(data);
